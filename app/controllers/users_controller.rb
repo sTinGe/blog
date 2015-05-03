@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    # GET user model from database
     @users = User.all
   end
 
@@ -37,6 +38,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_params
+    params.require(:user).permit(:email, :name)
+  end
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
